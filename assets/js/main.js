@@ -43,9 +43,6 @@ const resumen = document.querySelector('#resumen');
 const arrayResumen = [resumen]
 const barritas = document.querySelector('#contenedor-barritas');
 
-const dedo = document.querySelector('#idSection_0');
-
-dedo.innerHTML = 'dedo'
 
 let aData = [];
 /* let aCabecera = [];
@@ -111,7 +108,9 @@ const fnCabeceraTabla = async(data, mes, empresa) => {
 
             if (items.id == mes && items.empresa == empresa) {
                 
-                aCabeceraTabla.push(Object.keys(items.ruta[0]));       
+                aCabeceraTabla.push(Object.keys(items.ruta[0]));  
+                
+                document.querySelector('#idSection_0').innerHTML = '9999'
             }  
         })
     } catch (error) {
