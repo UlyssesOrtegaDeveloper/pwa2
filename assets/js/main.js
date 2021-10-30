@@ -112,17 +112,17 @@ const fnCabeceraTabla = async(data, mes, empresa) => {
             }
         })
 
+        aContenidoTabla.forEach((element) => {
+
+            let dedo = `<li>${element[i]}</li>`;
+        })  
+
         aCabeceraTabla.forEach((item, i) => {
 
-            document.querySelector('#idSection_0').innerHTML += `<ul><li>${item}</li>`;
-
-            aContenidoTabla.forEach((element) => {
-
-                document.querySelector('#idSection_0').innerHTML += `<li>${element[i]}</li>`;
-            })            
-
-            document.querySelector('#idSection_0').innerHTML += `</ul>`;
+            document.querySelector('#idSection_0').innerHTML += `<ul><li>${item}</li>${dedo}</ul>`;
         })
+
+        
 
     } catch (error) {
         console.log(error.message);
