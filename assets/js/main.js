@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let mes  = fecha.getMonth();
     let anio = fecha.getFullYear();
 
+    /* fnGetDatos(`${URL_API}/${anio}/${mes}`, `rhenus`); */
+
     fnGetDatos(`${URL_API}/${anio}/${mes}`, `rhenus`);
 })
 
@@ -46,8 +48,6 @@ let aCabecera = [];
 let aContenido = {};
 
 const fnGetDatos = async (url, empresa) => {
-
-    console.log('url ', url, 'empresa', empresa);
 
     try {
         message.innerHTML = 'Cargando ...';
