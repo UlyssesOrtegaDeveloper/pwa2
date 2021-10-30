@@ -1,6 +1,6 @@
 
 
-const URL_API        = "https://my-json-server.typicode.com/UlyssesOrtegaDeveloper/api-json/";
+const URL_API        = "https://my-json-server.typicode.com/UlyssesOrtegaDeveloper/json-delivery/";
 
 const select_meses   = document.querySelector('#mes');
 const select_ano     = document.querySelector('#ano');
@@ -46,6 +46,8 @@ const barritas = document.querySelector('#contenedor-barritas')
 let aData = [];
 let aCabecera = [];
 let aContenido = {};
+let aCabeceraTabla = [];
+let aContenidoTabla = [];
 
 const fnGetDatos = async (url, empresa) => {
 
@@ -53,27 +55,20 @@ const fnGetDatos = async (url, empresa) => {
         message.innerHTML = 'Cargando ...';
 
         console.log('1. escaneando ...');
-        let resultado = await fetch('./assets/json/db.json');
+        /* let resultado = await fetch('./assets/json/db.json'); */
+        let resultado = await fetch('https://my-json-server.typicode.com/UlyssesOrtegaDeveloper/json-delivery/2021');
 
         console.log('2. creando objeto ...');
         aData = await resultado.json();
 
         console.log('3. objeto creado', aData);
-
-        console.log('6. obteniendo contenido de tabla');  
-        
-        console.log(aData);
-
+        console.log('4. obteniendo contenido de tabla');  
         fnContenidoTabla(aData, 2021, 9, 'rhenus');
-
-        console.log('4. obteniendo cabecera de tabla');
+        console.log('5. objeto contenido', aContenidoTabla);
+        console.log('6. obteniendo cabecera de tabla');
         fnCabeceraTabla(aData, 2021, 9, 'rhenus');
+        console.log('7. array cabecera', aCabeceraTabla);
 
-        console.log('5. array cabecera', aCabecera);
-
-        console.log('7. array contenido', aContenido);
-        
-    
         message.innerHTML = '';
     }
     
@@ -81,4 +76,38 @@ const fnGetDatos = async (url, empresa) => {
         console.log('ERROR >>', error.message);
         message.innerHTML = 'Error al cargar los datos';
     }
+}
+
+
+// OK. fn que instancia el array 'aContenidoTabla'
+const fnContenidoTabla = async(data, mes, empresa) => {
+
+    try {
+        data.forEach(items => {
+
+            if (items.id == mes && items.empresa == empresa) {
+                
+                items.ruta.forEach(item => {
+                    
+                    aContenidoTabla.push(Object.values(item));
+                })
+            }
+        })
+    } catch (error) {
+        console.log(error.mesagge);
+    }   
+}
+
+// OK. fn que inyecta html 
+const fnCabeceraTabla = async(data, mes, empresa) => {
+
+    let html = document.querySelector('.insertarHtmlTablaRuta');
+
+    data.forEach(items => {
+
+        if (items.id == mes && items.empresa == empresa) {
+            html.innerHTML = "dedo"
+            aCabeceraTabla.push(Object.keys(items.ruta[0]));        
+        }  
+    })
 }
