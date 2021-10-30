@@ -108,9 +108,9 @@ const fnCabeceraTabla = async(data, mes, empresa) => {
 
             if (items.id == mes && items.empresa == empresa) {
                 
-                aCabeceraTabla.push(Object.keys(items.ruta[0]));  
+                let html = aCabeceraTabla.push(Object.keys(items.ruta[0]));  
                 
-                document.querySelector('#idSection_0').innerHTML = '9999'
+                document.querySelector('#idSection_0').innerHTML += html;
             }  
         })
     } catch (error) {
