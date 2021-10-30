@@ -102,6 +102,8 @@ const fnContenidoTabla = async(data, mes, empresa) => {
 
 // OK. fn que inyecta html 
 const fnCabeceraTabla = async(data, mes, empresa) => {
+
+    let dedo;
     
     try {
         data.forEach(items => {
@@ -114,7 +116,7 @@ const fnCabeceraTabla = async(data, mes, empresa) => {
 
         aContenidoTabla.forEach((element) => {
 
-            let dedo = `<li>${element[i]}</li>`;
+            dedo = `<li>${element[i]}</li>`;
         })  
 
         aCabeceraTabla.forEach((item, i) => {
