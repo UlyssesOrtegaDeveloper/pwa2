@@ -53,7 +53,6 @@ const fnGetDatos = async (url, empresa) => {
         message.innerHTML = 'Cargando ...';
 
         console.log('1. escaneando ...');
-        /* let resultado = await fetch('./assets/json/db.json'); */
         let resultado = await fetch('./assets/json/db.json');
 
         console.log('2. creando objeto ...');
