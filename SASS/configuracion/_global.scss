@@ -68,6 +68,16 @@ main {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.grid-6x {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-7x {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
 .grid-between {
     justify-content: space-between;
     align-self: center;

@@ -102,18 +102,29 @@ const fnContenidoTabla = async(data, mes, empresa) => {
 
 // OK. fn que inyecta html 
 const fnCabeceraTabla = async(data, mes, empresa) => {
-
+    
     try {
         data.forEach(items => {
-
+            
             if (items.id == mes && items.empresa == empresa) {
                 
-                let html = aCabeceraTabla.push(Object.keys(items.ruta[0]));  
-                
-                document.querySelector('#idSection_0').innerHTML += html;
-            }  
+                aCabeceraTabla = Object.keys(items.ruta[0]);  
+            }
         })
+
+        aCabeceraTabla.forEach((item, i) => {
+
+            document.querySelector('#idSection_0').innerHTML += `<ul><li>${item}</li>`;
+
+            aContenidoTabla.forEach((element) => {
+
+                document.querySelector('#idSection_0').innerHTML += `<li>${element[i]}</li>`;
+            })            
+
+            document.querySelector('#idSection_0').innerHTML += `</ul>`;
+        })
+
     } catch (error) {
         console.log(error.message);
-    }
+    }    
 }
