@@ -44,8 +44,8 @@ const arrayResumen = [resumen]
 const barritas = document.querySelector('#contenedor-barritas')
 
 let aData = [];
-let aCabecera = [];
-let aContenido = {};
+/* let aCabecera = [];
+let aContenido = {}; */
 let aCabeceraTabla = [];
 let aContenidoTabla = [];
 
@@ -63,10 +63,10 @@ const fnGetDatos = async (url, empresa) => {
 
         console.log('3. objeto creado', aData);
         console.log('4. obteniendo contenido de tabla');  
-        fnContenidoTabla(aData, 2021, 9, 'rhenus');
+        fnContenidoTabla(aData, 9, 'rhenus');
         console.log('5. objeto contenido', aContenidoTabla);
         console.log('6. obteniendo cabecera de tabla');
-        fnCabeceraTabla(aData, 2021, 9, 'rhenus');
+        fnCabeceraTabla(aData, 9, 'rhenus');
         console.log('7. array cabecera', aCabeceraTabla);
 
         message.innerHTML = '';
@@ -88,7 +88,6 @@ const fnContenidoTabla = async(data, mes, empresa) => {
             if (items.id == mes && items.empresa == empresa) {
                 
                 items.ruta.forEach(item => {
-                    
                     aContenidoTabla.push(Object.values(item));
                 })
             }
@@ -98,16 +97,26 @@ const fnContenidoTabla = async(data, mes, empresa) => {
     }   
 }
 
+
+
 // OK. fn que inyecta html 
 const fnCabeceraTabla = async(data, mes, empresa) => {
 
-    let html = document.querySelector('.insertarHtmlTablaRuta');
+    /* document.querySelector('.htmlTabla').innerHTML = 'dedo'; */
 
-    data.forEach(items => {
+    document.querySelector('.insertarHtml').innerHTML = "dedo";
 
-        if (items.id == mes && items.empresa == empresa) {
-            html.innerHTML = "dedo"
-            aCabeceraTabla.push(Object.keys(items.ruta[0]));        
-        }  
-    })
+    try {
+        data.forEach(items => {
+
+            if (items.id == mes && items.empresa == empresa) {
+
+                
+                
+                aCabeceraTabla.push(Object.keys(items.ruta[0]));        
+            }  
+        })
+    } catch (error) {
+        console.log(error.message);
+    }
 }
