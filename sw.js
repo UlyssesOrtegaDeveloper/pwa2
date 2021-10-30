@@ -12,7 +12,7 @@ self.addEventListener("fetch", e => {
         caches.match(e.request)
         .then(response => {
             
-            /* console.log(`Intercepting fetch request for: ${e.request.url}`); */
+            console.log(`Intercepting fetch request for: ${e.request.url}`);
 
             if (response) {
                 //recupera de cache
