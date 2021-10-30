@@ -41,7 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const message = document.querySelector('#message');
 const resumen = document.querySelector('#resumen');
 const arrayResumen = [resumen]
-const barritas = document.querySelector('#contenedor-barritas')
+const barritas = document.querySelector('#contenedor-barritas');
+
+const dedo = document.querySelector('#idSection_0');
+
+dedo.innerHTML = 'dedo'
 
 let aData = [];
 /* let aCabecera = [];
@@ -102,18 +106,12 @@ const fnContenidoTabla = async(data, mes, empresa) => {
 // OK. fn que inyecta html 
 const fnCabeceraTabla = async(data, mes, empresa) => {
 
-    /* document.querySelector('.htmlTabla').innerHTML = 'dedo'; */
-
-    document.querySelector('.insertarHtml').innerHTML = "dedo";
-
     try {
         data.forEach(items => {
 
             if (items.id == mes && items.empresa == empresa) {
-
                 
-                
-                aCabeceraTabla.push(Object.keys(items.ruta[0]));        
+                aCabeceraTabla.push(Object.keys(items.ruta[0]));       
             }  
         })
     } catch (error) {
