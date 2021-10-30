@@ -1,4 +1,4 @@
-/* import * as Api from './modules/apix.js'; */
+
 
 const URL_API        = "https://my-json-server.typicode.com/UlyssesOrtegaDeveloper/api-json/";
 
@@ -36,22 +36,35 @@ document.addEventListener('DOMContentLoaded', () => {
     fnGetDatos(`${URL_API}/${anio}/${mes}`, `rhenus`);
 })
 
+const message = document.querySelector('#message');
+const resumen = document.querySelector('#resumen');
+const arrayResumen = [resumen]
+const barritas = document.querySelector('#contenedor-barritas')
+
+let aData = [];
+let aCabecera = [];
+let aContenido = {};
+
 const fnGetDatos = async (url, empresa) => {
 
     console.log('url ', url, 'empresa', empresa);
 
-    /* try {
+    try {
         message.innerHTML = 'Cargando ...';
 
         console.log('1. escaneando ...');
-        let resultado = await fetch('./assets/json/db2.json');
+        /* let resultado = await fetch('./assets/json/db.json'); */
+        let resultado = await fetch('./assets/json/db.json');
 
         console.log('2. creando objeto ...');
         aData = await resultado.json();
 
         console.log('3. objeto creado', aData);
 
-        console.log('6. obteniendo contenido de tabla');        
+        console.log('6. obteniendo contenido de tabla');  
+        
+        console.log(aData);
+
         fnContenidoTabla(aData, 2021, 9, 'rhenus');
 
         console.log('4. obteniendo cabecera de tabla');
@@ -68,5 +81,5 @@ const fnGetDatos = async (url, empresa) => {
     catch (error) {
         console.log('ERROR >>', error.message);
         message.innerHTML = 'Error al cargar los datos';
-    } */
+    }
 }
