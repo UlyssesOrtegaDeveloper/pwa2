@@ -27,9 +27,11 @@
             
             <!-- Top Mobile -->
             <ul class="mixin-NAV-Top-Mobile">
+                <li></li>
                 <li>
                     <span id="idNavAppName">Delivery</span>
                 </li>
+                <li></li>
             </ul>
 
             <!-- Bottom mobile -->
@@ -69,10 +71,10 @@
         </nav>
     </header>
 
-    <!---------------------------------------------------------------->
-    <!--                        LOADING                             -->
-    <!---------------------------------------------------------------->
 
+    <!---------------------------------------------------------------->
+    <!--                        SELECTS                             -->
+    <!---------------------------------------------------------------->
     <div class="grid-2x grid-between contenedor-selects">
         <select name="empresa" id="empresa">
             <option value="rhenus">Rhenus</option>
@@ -91,7 +93,10 @@
             </select>
         </div>
     </div>
-
+    
+    <!---------------------------------------------------------------->
+    <!--                        LOADING                             -->
+    <!---------------------------------------------------------------->
     <div class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
@@ -102,11 +107,38 @@
     <!--                        SECTIONS                            -->
     <!---------------------------------------------------------------->
     <main>
-        <section id="idSection_0" class="grid-7x section-activo">
-            <!-- html -->
+        <section id="idSection_0" class=" section-activo">
+            <div id="idContainerTablaRuta" class="grid-7x">
+                <ul id="idTabla0"></ul>
+                <ul id="idTabla1"></ul>
+                <ul id="idTabla2"></ul>
+                <ul id="idTabla3"></ul>
+                <ul id="idTabla4"></ul>
+                <ul id="idTabla5"></ul>
+                <ul id="idTabla6"></ul>
+            </div>
         </section>
 
-        <section id="idSection_1">1</section>
+        <section id="idSection_1">
+            <div class="zone-up">
+                <ul id="resumen">
+                    <!-- insert html -->
+                </ul>
+            </div>
+
+            <div class="zone-middle">
+                <ul id="contenedor-media-cantidad">
+                    <!-- insert html -->
+                </ul>
+            </div>
+
+            <div class="zone-down">
+                <div id="contenedor-barritas">
+                    <!-- insert html -->
+                </div>
+                
+            </div>
+        </section>
 
         <section id="idSection_2">2</section>
 
@@ -141,19 +173,13 @@
 
 
     <!---------------------------------------------------------------->
-    <!--                         Scripts                             -->
+    <!--                         SCRIPTS                            -->
     <!---------------------------------------------------------------->
     
-    <script type="module" src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/modules.js"></script>
     <script src="./assets/js/pwa.js"></script>
 
     <script src="./assets/js/main.js"></script>
     
-    <!-- <script src="./assets/js/modules/apix.js"></script> -->
-    <!-- <script src="./assets/js/fetch.js"></script> -->
-    <!-- <script type="module" src="./assets/js/eventos.js"></script> -->
-
-    
-
 </body>
 </html>

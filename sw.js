@@ -1,3 +1,4 @@
+
 self.addEventListener("install", e => {
     /* console.log("SW Instalado con exito"); */
     e.waitUntil(
@@ -12,7 +13,7 @@ self.addEventListener("fetch", e => {
         caches.match(e.request)
         .then(response => {
             
-            console.log(`Intercepting fetch request for: ${e.request.url}`);
+            /* console.log(`Intercepting fetch request for: ${e.request.url}`); */
 
             if (response) {
                 //recupera de cache
