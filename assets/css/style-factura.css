@@ -161,6 +161,6 @@ h5 {
 /* /////////////////////////////////*/
 /* ///      MODAL - SCROLL       ///*/
 /* /////////////////////////////////*/
-#modal-activo {
+.modal-bottom {
     overflow: scroll!important;
 }
