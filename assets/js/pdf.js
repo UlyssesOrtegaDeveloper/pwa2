@@ -5,7 +5,7 @@ window.onload = function () {
             console.log(facturaPDF);
             console.log(window);
             var opt = {
-                margin: 0.5,
+                margin: 0.3,
                 filename: 'miFactura.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },

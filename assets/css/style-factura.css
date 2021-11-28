@@ -7,7 +7,9 @@ table.calculo-facturaPDF,
 table.observaciones-facturaPDF,
 table.impuestos-facturaPDF,
 div.observaciones-facturaPDF,
-h4 {
+.texto-facturaPDF,
+h4,
+h5 {
     font-size: 12px;
 }
 
