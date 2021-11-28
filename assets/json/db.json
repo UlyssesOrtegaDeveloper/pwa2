@@ -24,6 +24,7 @@
                 {"empresa":"rhenus", "dia": "28", "entregas": 31, "recogidas": 1, "kilos": 121, "especiales": 0, "berioska": 1, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
                 {"empresa":"rhenus", "dia": "29", "entregas": 25, "recogidas": 3, "kilos": 0, "especiales": 0, "berioska": 0, "extras": 1, "observaciones": [{"exp": "7-11-12-18670/1", "obs": "se entrega caja recogida en otra empresa"}]},
                 
+
                 {"empresa":"vectio", "dia": "04", "maletas entregadas": 3, "direcciones": 3, "recorrido": "arinaga x1- LP x2", "observaciones": [{"obs": "-"}]},
                 {"empresa":"vectio", "dia": "07", "maletas entregadas": 5, "direcciones": 5, "recorrido": "LP x5", "observaciones": [{"obs": "-"}]},
                 {"empresa":"vectio", "dia": "26", "maletas entregadas": 12, "direcciones": 8, "recorrido": "telde x1 - tafira x1 - arucas x3 - LP x3", "observaciones": [{"obs": "-"}]}
@@ -34,17 +35,30 @@
         {"id": 10, "ruta":
             [
                 {"empresa":"rhenus", "dia": "02", "entregas": 17, "recogidas": 0, "kilos": 60, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
-                {"empresa":"rhenus", "dia": "03", "entregas": 20, "recogidas": 0, "kilos": 56, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
-                {"empresa":"rhenus", "dia": "04", "entregas": 26, "recogidas": 0, "kilos": 166, "especiales": 0, "berioska": 0, "extras": 1, "observaciones": [{"exp": "7-11-4-608614/1", "obs": "entrega de 1 caja faltante en allkauf"}]},
+                {"empresa":"rhenus", "dia": "03", "entregas": 22, "recogidas": 0, "kilos": 56, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
+                {"empresa":"rhenus", "dia": "04", "entregas": 26, "recogidas": 0, "kilos": 166, "especiales": 0, "berioska": 0, "extras": 3, "observaciones": [{"exp": "7-11-4-608614/1", "obs": "entrega de 1 caja faltante en allkauf"}]},
                 {"empresa":"rhenus", "dia": "05", "entregas": 31, "recogidas": 1, "kilos": 252, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
                 {"empresa":"rhenus", "dia": "08", "entregas": 23, "recogidas": 3, "kilos": 108, "especiales": 0, "berioska": 0, "extras": 3, "observaciones": [{"exp": "7-11-2-1720043/1", "obs": "firma en tienda colors"},{"exp": "7-11-2-1720042/1", "obs": "firma en tienda BM 2015"},{"exp": "7-11-5-341758/1", "obs": "entrega faltante a mirella capellina"}]},
                 {"empresa":"rhenus", "dia": "09", "entregas": 25, "recogidas": 5, "kilos": 57, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
                 {"empresa":"rhenus", "dia": "10", "entregas": 34, "recogidas": 2, "kilos": 54, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
                 {"empresa":"rhenus", "dia": "11", "entregas": 26, "recogidas": 3, "kilos": 0, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
-                {"empresa":"rhenus", "dia": "12", "entregas": 37, "recogidas": 0, "kilos": 110, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "-", "obs": "-"}]},
+                {"empresa":"rhenus", "dia": "12", "entregas": 37, "recogidas": 0, "kilos": 110, "especiales": 0, "berioska": 0, "extras": 2, "observaciones": [{"exp": "7-11-5-342578", "obs": "entraga de 1 caja faltante"},{"exp": "7-11-5-335198", "obs": "entraga de 1 caja faltante"}]},
+                {"empresa":"rhenus", "dia": "15", "entregas": 24, "recogidas": 0, "kilos": 0, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "16", "entregas": 42, "recogidas": 0, "kilos": 0, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "17", "entregas": 30, "recogidas": 2, "kilos": 52, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "18", "entregas": 23, "recogidas": 2, "kilos": 53, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "19", "entregas": 24, "recogidas": 0, "kilos": 0, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "22", "entregas": 16, "recogidas": 0, "kilos": 54, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "23", "entregas": 31, "recogidas": 0, "kilos": 0, "especiales": 0, "berioska": 0, "extras": 0, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "24", "entregas": 24, "recogidas": 0, "kilos": 120, "especiales": 0, "berioska": 0, "extras": 1, "observaciones": [{"exp": "344920/1", "obs": "rechazo peluqueria jawad"}]},
+                {"empresa":"rhenus", "dia": "25", "entregas": 26, "recogidas": 0, "kilos": 50, "especiales": 0, "berioska": 0, "extras": 1, "observaciones": [{"exp": "", "obs": ""}]},
+                {"empresa":"rhenus", "dia": "26", "entregas": 30, "recogidas": 0, "kilos": 86, "especiales": 0, "berioska": 0, "extras": 1, "observaciones": [{"exp": "", "obs": ""}]},
                 
 
-                {"empresa":"vectio", "dia": "03", "maletas entregadas": 0, "direcciones": 0, "recorrido": "-", "observaciones": "-"}
+
+                {"": "ESTAS DOS ESTABAN LAS PUSE EN AUSENTE PERO APARECIERON COMO ENTREGADAS, LAS METO EN ENTREGAS DEL DIA 3", "exp": "7-11-5-341952/1", "obs": "susan"},{"exp": "7-11-3-519359/1", "obs": "peluqueria ray"},
+
+                {"empresa":"vectio", "dia": "03", "maletas entregadas": 45, "direcciones": 16, "recorrido": "Sur", "observaciones": "de 15:00 a 23:00"}
             ]},
 
         {"id": 11, "ruta":[]}

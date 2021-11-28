@@ -1,7 +1,8 @@
 /* ABRIR MODAL */
 let modalPulsado = '';
 
-const btnAbrirModal = document.querySelector('.mixin-NAV-Top-Mobile');
+/* const btnAbrirModal = document.querySelector('.mixin-NAV-Top-Mobile'); */
+const btnAbrirModal = document.querySelector('.contenedorButton');
 
 btnAbrirModal.addEventListener('click', (e) => {
     

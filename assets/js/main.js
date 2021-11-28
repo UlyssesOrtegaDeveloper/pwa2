@@ -1,5 +1,5 @@
 /// COMENZAMOS !
-const URL_API        = "https://my-json-server.typicode.com/UlyssesOrtegaDeveloper/json-delivery/";
+const URL_API        = "https://my-json-server.typicode.com/UlyssesOrtegaDeveloper/json-delivery";
 
 const select_meses   = document.querySelector('#mes');
 const select_ano     = document.querySelector('#ano');
@@ -44,7 +44,7 @@ const barritas = document.querySelector('#contenedor-barritas');
 let aData = [];
 let aCabeceraTabla = [];
 let aContenidoTabla = [];
-let aTabla = [[],[],[],[],[],[],[],[]];
+/* let aTabla = [[],[],[],[],[],[],[],[]]; */
 
 const fnGetDatos = async (url, empresa) => {
 
@@ -105,6 +105,14 @@ const fnTabla = async(data, empresa) => {
     /// DESTRUCTURING para quitar el nombre de la empresa
     let [, ...tablaDestructurada] = myTabla;
 
+    /// HTML limpiar tabla
+    tablaDestructurada.forEach((item, i) => {
+
+        tablaDestructurada[0].forEach((items, j) => {
+
+            document.querySelector('#idTabla'+i).innerHTML = ``;
+        })
+    })
 
     /// HTML TABLA SECTION_0
     tablaDestructurada.forEach((item, i) => {
@@ -114,6 +122,8 @@ const fnTabla = async(data, empresa) => {
             document.querySelector('#idTabla'+i).innerHTML += `<li>${tablaDestructurada[i][j]}</li>`;
         })
     })
+
+
 
 
     /// DESTRUCTURING para quitar los dias
@@ -130,18 +140,138 @@ const fnTabla = async(data, empresa) => {
     })
 
 
-    /// SUMAS REALIZADAS
+    /// PRECIOS
+    const tablaPrecios = [
+        3.94,   /// entregas
+        3.94,   /// recogidas
+        //6,      /// recogidaEspecial
+        0.073,  /// kilos
+        5,      /// especiales
+        7,      /// berioska
+        3.94    /// extras
+    ]
+
+
+    /// OK > SUMAS REALIZADAS
     let tablaSumas = [];
+    let sumaTotalResumen = 0;
 
     tablaNumerica.map((element, i) => {
-
+        
         tablaSumas[i] = tablaNumerica[i].reduce((prev, item) => {
 
             return prev + item;
         })
-    })
-}
 
+        /// HTML > Section_1 > se inserta en pestaña 'estadisticas' entregas, recogidas, kilos, especiales, berioska y extras
+        document.querySelector('#idSuma_'+i).innerHTML = tablaSumas[i];
+        
+        /// HTML > Section_2 > se inserta en pestaña 'resumen' entregas, recogidas, kilos, especiales, berioska y extras
+        document.querySelector('#idResumenA_'+i).innerHTML = tablaSumas[i];
+        /// Factura
+        document.querySelector('#idResumenA_'+i+'_factura').innerHTML = tablaSumas[i];
+        /// HTML > Section_2 > insertando precios
+        document.querySelector('#idResumenB_'+i).innerHTML = tablaPrecios[i];
+        /// Factura
+        document.querySelector('#idResumenB_'+i+'_factura').innerHTML = tablaPrecios[i];
+        /// HTML > Section_2 > insertando precios
+        document.querySelector('#idResumenC_'+i).innerHTML = (tablaPrecios[i] * tablaSumas[i]).toFixed(2);
+        /// Factura
+        document.querySelector('#idResumenC_'+i+'_factura').innerHTML = (tablaPrecios[i] * tablaSumas[i]).toFixed(2);
+        
+        /// Suma de totales para insertar en html a continuacion
+        sumaTotalResumen += tablaPrecios[i] * tablaSumas[i]; 
+    })
+
+    /// TOTAL SUMA EN RESUMEN
+    document.querySelector('#idResumenC_6').innerHTML = sumaTotalResumen.toFixed(2)+'€';
+    
+    /// FACTURA BASE IMPONIBLE
+    const BASE = document.querySelector('#idimpuestosC_6_factura').innerHTML = sumaTotalResumen.toFixed(2);
+    /// FACTURA IGIC
+    const IGIC = document.querySelector('#idimpuestosC_7_factura').innerHTML = (sumaTotalResumen * (3 / 100)).toFixed(2);
+    /// FACTURA IRPF
+    const IRPF = document.querySelector('#idimpuestosC_8_factura').innerHTML = (sumaTotalResumen * (1 / 100)).toFixed(2);
+    /// TOTAL
+    let total = document.querySelector('#idimpuestosC_9_factura');
+    total.innerHTML = (parseFloat(BASE) + parseFloat(IGIC)) - parseFloat(IRPF)+' €';
+
+
+
+    /// FACTURA > mes y año
+    aMeses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+    document.querySelector('#idMes').innerHTML = aMeses[select_meses.value];
+    document.querySelector('#idAno').innerHTML = select_ano.value;
+
+
+
+    let diasTrabajados = tablaNumerica[0].length;
+    let sumaMedia = tablaSumas[0] + tablaSumas[1] + tablaSumas[5];
+    let media = sumaMedia / diasTrabajados;
+
+
+    /// OK > HTML > Section_2 > 'MEDIA DIARIA' se suma entregas, recogidas y extras para sacar la media
+    document.querySelector('#idMedia').innerHTML = media.toFixed(2);
+    /// OK > HTML > Section_2 > 'DIAS TRABAJADOS'
+    document.querySelector('#idDiasTrabajados').innerHTML = diasTrabajados;
+
+    /// LIMPIA LAS BARRAS ANTERIORES
+    barritas.innerHTML = '';
+
+    /// OK > HTML > Section_1 > 'BARRITAS'
+    tablaNumerica[0].forEach((item, index) => {
+
+        let letra = fnCalcularLetraDia(aData, empresa);
+
+        barritas.innerHTML += `<div class="barrita">${tablaNumerica[0][index]} <br> ${letra[index]}</div>`;
+    });
+
+
+    /// CALCULAMOS PORCENTAJE
+    let porcentaje = 0;
+    let numMaximoEntregas = Math.max(...tablaNumerica[0]);
+    
+    tablaNumerica[0].forEach((item, index) => {
+
+        porcentaje = ((tablaNumerica[0][index] * 100) / numMaximoEntregas)+'%';
+        
+        if (index == 0) document.querySelectorAll('.barrita')[index].style.height = porcentaje;
+        if (index > 0) document.querySelectorAll('.barrita')[index].style.height = porcentaje;
+    })
+
+
+    /// HTML LIMPIAR TABLA  > TABLA SECTION_2 Factura
+    tablaDestructurada.forEach((item, i) => {
+
+        tablaDestructurada[0].forEach((items, j) => {
+
+            document.querySelector('#idTabla'+i+'_factura').innerHTML = ``;
+        })
+    })
+
+
+    /// HTML TABLA SECTION_2 Factura
+    tablaDestructurada.forEach((item, i) => {
+
+        tablaDestructurada[0].forEach((items, j) => {
+
+            if (tablaDestructurada[i][j] === 0) {
+                document.querySelector('#idTabla'+i+'_factura').innerHTML += `<li><br></li>`;
+            } else {
+                document.querySelector('#idTabla'+i+'_factura').innerHTML += `<li>${tablaDestructurada[i][j]}</li>`;
+            }
+
+        })
+
+        document.querySelector('#idTabla'+i+'_factura').innerHTML += `<li><br></li>`;
+        
+        
+        /* document.querySelector('#idTabla'+i+'_factura').innerHTML += `<li>${tablaSumas[i]}</li>`; */
+        
+    })
+
+}
 
 
 
@@ -149,10 +279,46 @@ const fnTabla = async(data, empresa) => {
 ///         PESTAÑA ESTADISTICAS
 //------------------------------------------
 
-const fnSection_1 = async() => {
 
 
+
+/// fn > se activa dentro de fnRellenarBarritas
+/// calcula la letra de la semana (lunes = L, martes = M, etc) para que la funcion principal pueda insertarla dentro de las barritas
+const fnCalcularLetraDia = (data, empresa) => {
+
+    const semana = ['D','L','M','X','J','V','S'];
+    let letras = [];
+
+    data.ruta.forEach((item, index) => {
         
+        if (item.empresa == empresa) {
+            
+            let d = new Date(select_ano.value, data.id, item.dia);
+            
+            letras.push(semana[d.getDay()]);
+        }
+    })
+
+    return letras; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const fnSection_1 = async() => {
+ 
     const fnResumen = (data) => {   /// nos muestra el numero total de Entregas, recogidas, etc ...
 
         let contenedorMediaCantidad = document.querySelector('#contenedor-media-cantidad');
@@ -320,3 +486,6 @@ const fnSection_1 = async() => {
 
 
 }
+
+
+

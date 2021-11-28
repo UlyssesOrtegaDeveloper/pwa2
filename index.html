@@ -15,12 +15,21 @@
     
     <!-- estilos -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style-factura.css">
+    
     <!-- <link rel="manifest" href="/site.webmanifest"> -->
     <link rel="manifest" crossorigin="use-credentials" href="./manifest.json"/>
+    
+    <!--// factura pdf -->
+    <script src="./assets/js/pdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
     
     <title>DeliveryBeta</title>
 </head>
 <body>
+    <!---------------------------------------------------------------->
+    <!--                        HEADER                             -->
+    <!---------------------------------------------------------------->
 
     <header>
         <nav id="idContenedorNavMobile" class="mixin-NAV">
@@ -120,27 +129,106 @@
         </section>
 
         <section id="idSection_1">
+            
             <div class="zone-up">
-                <ul id="resumen">
-                    <!-- insert html -->
+                <ul class="one">
+                    <li>
+                        <div id="idSuma_0" class="numero"></div>
+                        <div class="fuente">Entregas</div>
+                    </li>
+                    <li>
+                        <div id="idSuma_1" class="numero"></div>
+                        <div class="fuente">Recogidas</div>
+                    </li>
+                    <li>
+                        <div id="idSuma_2" class="numero"></div>
+                        <div class="fuente">Kilos</div>
+                    </li>
+                    <li>
+                        <div id="idSuma_3" class="numero"></div>
+                        <div class="fuente">Especiales</div>
+                    </li>
+                    <li>
+                        <div id="idSuma_4" class="numero"></div>
+                        <div class="fuente">Berioska</div>
+                    </li>
+                    <li>
+                        <div id="idSuma_5" class="numero"></div>
+                        <div class="fuente">Extras</div>
+                    </li>
                 </ul>
-            </div>
-
-            <div class="zone-middle">
-                <ul id="contenedor-media-cantidad">
-                    <!-- insert html -->
+                <ul class="two">
+                    <li>
+                        <div id="idMedia" class="numero"></div>
+                        <div class="fuente">Media diaria</div>
+                    </li>
+                    <li>
+                        <div id="idDiasTrabajados" class="numero"></div>
+                        <div class="fuente">Dias trabajados</div>
+                    </li>
                 </ul>
             </div>
 
             <div class="zone-down">
                 <div id="contenedor-barritas">
-                    <!-- insert html -->
+                    <!-- html  -->
                 </div>
-                
             </div>
         </section>
 
-        <section id="idSection_2">2</section>
+        <section id="idSection_2">
+
+            <table class="calculo-factura"> <!-- html2PDF  -->
+                <tr>
+                    <td><span id="idResumenA_0" class="color:red;"></span> entregas</td>
+                    <td> <span id="idResumenB_0"></span> </td>
+                    <td id="idResumenC_0"> </td>
+                </tr>
+                <tr>
+                    <td><span id="idResumenA_1"></span> recogidas</td>
+                    <td> <span id="idResumenB_1"></span> </td>
+                    <td id="idResumenC_1"> </td>
+                </tr>
+                <tr>
+                    <td><span id="idResumenA_2"></span> kilos</td>
+                    <td> <span id="idResumenB_2"></span> </td>
+                    <td id="idResumenC_2"> </td>
+                </tr>
+                <tr>
+                    <td><span id="idResumenA_3"> </span> especiales</td>
+                    <td> <span id="idResumenB_3"></span> </td>
+                    <td id="idResumenC_3"> </td>
+                </tr>
+                <tr>
+                    <td><span id="idResumenA_4"></span> berioska</td>
+                    <td>  <span id="idResumenB_4"></span> </td>
+                    <td id="idResumenC_4"> </td>
+                </tr>
+                <tr>
+                    <td><span id="idResumenA_5"></span> extras</td>
+                    <td><span id="idResumenB_5"></span> </td>
+                    <td id="idResumenC_5"> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td id="idResumenA_6"></td>
+                    <td> <span id="idResumenB_6"></span> Total: </td>
+                    <td id="idResumenC_6"> </td>
+                </tr>
+            </table>
+
+
+            <div class="contenedorButton">
+                <button id="idIconModalBottom" data-modal="abrir" data-modalSide="modal-bottom">Vista previa Factura</button>
+                <button id="exportFacturaPDF">Generar factura PDF</button>
+            </div>
+
+           
+        </section>
 
         <section id="idSection_3">3</section>
 
@@ -158,7 +246,7 @@
         <div class="modal-bottom">
             <div class="cerrar-modal">
                 <span><!-- dejar vacio --></span>
-                <span>Observaciones</span>
+                <span>Factura</span>
                 <span>
                     <i class="fas fa-times" data-modal="cerrar" data-modalSide="modal-bottom"></i>
                 </span>
@@ -167,6 +255,158 @@
             <ul id="obsModalHTML">
                 <!-- insert html -->
             </ul>
+
+            <div id="facturaPDF">
+
+                <h4 class="titulo-facturaPDF">FACTURA</h4>
+                <hr>
+
+                <table class="datos-facturaPDF">
+                    <tr>
+                        <td> <!--// LOGO -->
+                            <img src="./assets/img/logo/logo.png" width="200" height="100" alt="">
+                        </td>
+                        <td class="contenedor-datos-factura">
+                            <div class="f-izquierda-datos">
+                                <div>Nº Factura:</div>
+                                <div>Fecha factura:</div>
+                                <div>Fecha vencimiento</div>
+                            </div>
+
+                            <div class="f-derecha-datos">
+                                <div>24/21</div>
+                                <div>xx/xx/2021</div>
+                                <div>xx/xx/2021</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>mi nombre </div>
+                            <div>mi direccion</div>
+                            <div>mis datos cp</div>
+                            <div>mis otras datos-factura</div>
+                            
+                        </td>
+                        <td class="contenedor-datos-factura">
+                            <div class="f-izquierda-cliente">
+                                
+                            </div>
+                            <div class="f-derecha-cliente">
+                                <div>Rhenus Logistics, S.A.U</div>
+                                <div>CIF: A-08211989</div>
+                                <div>C/Area VI Parcela C32 Puerto de Las Palmas</div>
+                                <div>CP:35008- Las Palmas de Gran Canaria</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <hr><br>
+                
+                <div>Transporte y reparto de mercancías mes de <span id="idMes"></span> de <span id="idAno"></span></div>
+
+                <br><br>
+
+                <div id="idContainerTablaRuta" class="grid-7x">
+                    <ul id="idTabla0_factura"></ul>
+                    <ul id="idTabla1_factura"></ul>
+                    <ul id="idTabla2_factura"></ul>
+                    <ul id="idTabla3_factura"></ul>
+                    <ul id="idTabla4_factura"></ul>
+                    <ul id="idTabla5_factura"></ul>
+                    <ul id="idTabla6_factura"></ul>
+                </div>
+
+                <h4>Observaciones: Expediciones no asignadas por ser faltantes u otros motivos</h4>
+
+                <div class="observaciones-facturaPDF">
+                    <ul>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                        <li><span>04 0ct</span> <span>Exp: 7-11-3-514029/1</span></li>
+                    </ul>
+                    
+                </div>
+
+                <table class="calculo-facturaPDF"> <!-- html2PDF  -->
+                    <tr>
+                        <td>Entregas</td>
+                        <td><span id="idResumenA_0_factura"></span></td>
+                        <td> <span id="idResumenB_0_factura"></span> €</td>
+                        <td> <span id="idResumenC_0_factura"></span> €</td>
+                    </tr>
+                    <tr>
+                        <td>recogidas</td>
+                        <td><span id="idResumenA_1_factura"></span></td>
+                        <td> <span id="idResumenB_1_factura"></span> €</td>
+                        <td> <span id="idResumenC_1_factura"></span> €</td>
+                    </tr>
+                    <tr>
+                        <td>kilos</td>
+                        <td><span id="idResumenA_2_factura"></span> </td>
+                        <td> <span id="idResumenB_2_factura"></span> €</td>
+                        <td> <span id="idResumenC_2_factura"></span> €</td>
+                    </tr>
+                    <tr>
+                        <td>especiales</td>
+                        <td><span id="idResumenA_3_factura"> </span> </td>
+                        <td> <span id="idResumenB_3_factura"></span> €</td>
+                        <td> <span id="idResumenC_3_factura"></span> €</td>
+                    </tr>
+                    <tr>
+                        <td>berioska</td>
+                        <td><span id="idResumenA_4_factura"></span> </td>
+                        <td>  <span id="idResumenB_4_factura"></span> €</td>
+                        <td> <span id="idResumenC_4_factura"></span> €</td>
+                    </tr>
+                    <tr>
+                        <td>extras</td>
+                        <td><span id="idResumenA_5_factura"></span> </td>
+                        <td><span id="idResumenB_5_factura"></span> €</td>
+                        <td> <span id="idResumenC_5_factura"></span> €</td>
+                    </tr>                
+                </table>
+
+                <table class="impuestos-facturaPDF">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td> BASE </td>
+                        <td id="idimpuestosC_6_factura"> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td> IGIC 3% </td>
+                        <td id="idimpuestosC_7_factura"> </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td> IRPF 1% </td>
+                        <td id="idimpuestosC_8_factura"> </td>
+                    </tr>
+
+                    <tr class="negrita">
+                        <td></td>
+                        <td></td>
+                        <td> TOTAL </td>
+                        <td id="idimpuestosC_9_factura"> </td>
+                    </tr>
+                </table>
+
+                
+
+                <h5>IBAN ES45 2038 9002 2360 0131 4864</h5>
+            </div>
 
         </div>
     </div>
@@ -179,7 +419,10 @@
     <script type="module" src="./assets/js/modules.js"></script>
     <script src="./assets/js/pwa.js"></script>
 
-    <script src="./assets/js/main.js"></script>
     
+    <script src="./assets/js/main.js"></script>
+
+    
+
 </body>
 </html>
